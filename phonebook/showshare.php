@@ -11,7 +11,7 @@ $shared=$statement->fetchAll(PDO::FETCH_OBJ);
 ?>
 
 <div class="container">
-<div class "card mt-5">
+<div class="card mt-5">
 <div class="card-header">
 <h2>Shared contacts</h2>
 </div>
@@ -20,7 +20,7 @@ $shared=$statement->fetchAll(PDO::FETCH_OBJ);
 <tr>
 <th>ID</th>
 <th>Send By</th>
-<th>Name</Noth>
+<th>Name</th>
 <th>Phone </th>
 </tr>
 <?php foreach($shared as $person):
@@ -29,7 +29,7 @@ $sql="SELECT * FROM people WHERE id=:id";
 $statement=$connection->prepare($sql);
 $statement->execute([':id'=>$person->id]);
 $sharedcontact=$statement->fetchAll(PDO::FETCH_ASSOC);
-var_dump($sharedcontact);
+
 ?>
 
 <tr>
