@@ -23,6 +23,17 @@ if(isset($_POST['name'])&& isset ($_POST['number'])){
 ?>
 <?php require 'header.php' ; 
 
+$_SESSION['sharedc']=$id;
+
+if(isset($_POST['shared'])){
+    $name=$_POST['contact'];
+    $sql='insert into shared (sen_user,rec_user,id) values(:send_name,:rec_user,:id)';
+    $statement=$connection->prepare($sql);
+    if($statement->execute([':send_name'=>$_SESSION['username'],':rec_user'=>$name,':id'=>$_SESSION['sharedc']])){
+     header("Location:showshare.php");
+    }
+}
+
 ?>
    <div class="container">
    <div class ="card mt-5">
@@ -35,10 +46,10 @@ if(isset($_POST['name'])&& isset ($_POST['number'])){
        <?php echo $message ;?>
        </div>
 <?php endif;?>
-   <form method ="post">
+   <form method ="post" action="">
    <div class="form-group col-md-4">
       <label for="inputState">Shared User</label>
-      <select id="inputState" class="form-control" required>
+      <select id="inputState" name="contact" class="form-control" required>
          <?php foreach($allpeople as $persons){?>
             <option><?php echo $persons['username'];?></option>
          <?php } ?>
@@ -47,6 +58,6 @@ if(isset($_POST['name'])&& isset ($_POST['number'])){
     </div>
   
    <div class="form-group">
-   <button type ="submit" class ="btn btn-info">Share</button>
+   <button type ="submit" name="shared" class ="btn btn-info">Share</button>
    </div>
     <?php require 'footer.php'; ?>

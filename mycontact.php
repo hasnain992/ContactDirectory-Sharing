@@ -92,9 +92,7 @@ form{
         </div>
         <div class="input-group">
             <button type="submit" name="register" class="btn">Register </button>
-            <div class="alert alert-success" role="alert">
-  Successfully registered
-</div>
+          
         </div>
        
         <p>

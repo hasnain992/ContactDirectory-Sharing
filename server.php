@@ -58,7 +58,8 @@ if(isset($_POST['register'])){
         $password=md5($password_1);//for encyption
         $sql="INSERT INTO users (username,email,password) VALUES ('$username', '$email','$password')";
         mysqli_query($db,$sql);
-        echo "User Registered Successfully";
+        header('location:login.php?register=1');
+        
     }
 }
 ?>

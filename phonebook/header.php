@@ -32,8 +32,15 @@ if(!$_SESSION['username']){
       <li class="nav-item">
         <a class="nav-link" href="create.php">Create a Contact</a>
       </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" href="./showshare.php">Shared Contact</a>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="../logout.php">logout</a>
+      </li>
+      <li class="nav-item" style="float: right;">
+        <a class="nav-link"><?php echo $_SESSION['username'] ?></a>
       </li>
      
       
